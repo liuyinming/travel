@@ -25,13 +25,13 @@ export default {
           } ,
           swiperList:[{
               id:'001',
-              imgurl:'https://imgs.qunarzz.com/p/tts9/1710/ee/7d44297c48ebfe02.jpg_r_390x260x90_c3b80ff8.jpg'
+              imgurl:'http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg'
           },{
               id:'002',
-              imgurl:'https://imgs.qunarzz.com/p/tts3/1507/d3/2ea8d53597e8da.jpg_r_390x260x90_1dc7ed34.jpg'
+              imgurl:'http://img1.qunarzz.com/piao/fusion/1811/31/da037478f37cf202.jpg_750x200_fe28d396.jpg'
           },{
               id:'003',
-              imgurl:'https://imgs.qunarzz.com/p/tts2/1609/21/d547c74398480d02.jpg_r_390x260x90_63645dc4.jpg'
+              imgurl:'http://img1.qunarzz.com/piao/fusion/1811/7c/8e5c4ab8ee8b7402.jpg_750x200_dd7a38dd.jpg'
           }] 
         }
     },
@@ -58,6 +58,6 @@ export default {
   height:0
   padding-bottom :31.25%
   .swiper-image
-    width : 100%
-
+     width : 100%
+     height :120px
 </style>
