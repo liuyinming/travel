@@ -1,12 +1,11 @@
-<<<<<<< HEAD
- <template>
+<template>
     <div>
       <city-header></city-header>
       <city-search></city-search>
       <city-list :cities="cities" :hotCities="hotCities"></city-list>
       <city-alphabet :cities="cities"></city-alphabet>
     </div>
- </template>
+</template>
   
  <script>
  import axios from 'axios'
