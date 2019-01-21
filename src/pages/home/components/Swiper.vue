@@ -1,9 +1,9 @@
 <template>
     <div class="wrapper">
-    <swiper :options="swiperOption" >
+    <swiper :options="swiperOption" v-if="showSwiper" >
     <!-- slides -->
-    <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-image" :src="item.imgurl">
+    <swiper-slide v-for="item of list" :key="item.id">
+        <img class="swiper-image" :src="item.imgUrl">
     </swiper-slide>
    
     <!-- Optional controls -->
@@ -17,24 +17,22 @@
 <script>
 export default {
     name : 'HomeSwiper',
+    props:{
+        list:Array
+    },
     data (){
         return{
           swiperOption:{
               pagination:'.swiper-pagination',
               loop:true
-          } ,
-          swiperList:[{
-              id:'001',
-              imgurl:'http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg'
-          },{
-              id:'002',
-              imgurl:'http://img1.qunarzz.com/piao/fusion/1811/31/da037478f37cf202.jpg_750x200_fe28d396.jpg'
-          },{
-              id:'003',
-              imgurl:'http://img1.qunarzz.com/piao/fusion/1811/7c/8e5c4ab8ee8b7402.jpg_750x200_dd7a38dd.jpg'
-          }] 
+          } 
         }
     },
+    computed:{
+        showSwiper(){
+            return this.list.length
+        }
+    }
     // computed:{
     //     swiper() {
     //     return this.$refs.mySwiper.swiper

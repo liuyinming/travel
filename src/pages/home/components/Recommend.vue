@@ -3,9 +3,9 @@
     <div class="recommmend-title">热销推荐</div>
     <div> 
         <ul >
-            <li class="item" v-for="item of recommendList" :key="item.id">
+            <li class="item" v-for="item of list" :key="item.id">
                 <div class="item-img-wrapper">
-                    <img class="item-img" :src="item.imgurl"/>
+                    <img class="item-img" :src="item.imgUrl"/>
                 </div>
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -21,28 +21,31 @@
 <script>
 export default {
   name: "HomeRecommend",
-  data (){
-    return{
-      recommendList:[{
-        id:'01',
-        imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
-        title:'武汉极地海洋游乐观',
-        desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
-      },
-      {
-        id:'02',
-        imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
-        title:'武汉极地海洋游乐观',
-        desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
-      },
-      {
-        id:'03',
-        imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
-        title:'武汉极地海洋游乐观',
-        desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
-      }]
-    }
-  }
+  props:{
+     list:Array
+  },
+  // data (){
+  //   return{
+  //     recommendList:[{
+  //       id:'01',
+  //       imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
+  //       title:'武汉极地海洋游乐观',
+  //       desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
+  //     },
+  //     {
+  //       id:'02',
+  //       imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
+  //       title:'武汉极地海洋游乐观',
+  //       desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
+  //     },
+  //     {
+  //       id:'03',
+  //       imgurl:'http://img1.qunarzz.com/sight/p0/1712/18/18b8d3d36d30c17da3.img.jpg_200x200_e6518ecc.jpg',
+  //       title:'武汉极地海洋游乐观',
+  //       desc:'本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需本测试报告能实现是否符合用户需'
+  //     }]
+  //   }
+  // }
 };
 </script>
 
