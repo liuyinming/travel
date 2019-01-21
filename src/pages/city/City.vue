@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <template>
     <div>
       <city-header></city-header>
@@ -45,6 +46,7 @@
          this.getCityInfo();
      }
  }
+
 </script>
 
 <style lang="stylus" scoped>
