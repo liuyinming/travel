@@ -4,8 +4,8 @@
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-image">
-            <img class="icon-imgcontent" :src="item.iconurl">
-            <p class="icon-desc">{{item.icondesc}}</p>
+            <img class="icon-imgcontent" :src="item.imgUrl">
+            <p class="icon-desc">{{item.desc}}</p>
           </div>
         </div>
       </swiper-slide>
@@ -16,76 +16,79 @@
 <script>
 export default {
   name: "HomeIcon",
-  data() {
-    return {
-      iconList: [
-        {
-          id: "01",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          icondesc: "景点门票"
-        },
-        {
-          id: "02",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          icondesc: "武汉必游"
-        },
-        {
-          id: "03",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          icondesc: "游乐场"
-        },
-        {
-          id: "04",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
-          icondesc: "城市观光"
-        },
-        {
-          id: "05",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-          icondesc: "海洋馆"
-        },
-        {
-          id: "06",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-          icondesc: "一日游"
-        },
-        {
-          id: "07",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif",
-          icondesc: "年终大促"
-        },
-        {
-          id: "08",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png",
-          icondesc: "武汉欢乐谷"
-        },
-        {
-          id: "09",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-          icondesc: "极地海洋"
-        },
-        {
-          id: "10",
-          iconurl:
-            "http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png",
-          icondesc: "名胜古迹"
-        }
-      ]
-    };
+  props:{
+    list:Array
   },
+  // data() {
+  //   return {
+  //     iconList: [
+  //       {
+  //         id: "01",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
+  //         icondesc: "景点门票"
+  //       },
+  //       {
+  //         id: "02",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
+  //         icondesc: "武汉必游"
+  //       },
+  //       {
+  //         id: "03",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
+  //         icondesc: "游乐场"
+  //       },
+  //       {
+  //         id: "04",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
+  //         icondesc: "城市观光"
+  //       },
+  //       {
+  //         id: "05",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
+  //         icondesc: "海洋馆"
+  //       },
+  //       {
+  //         id: "06",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
+  //         icondesc: "一日游"
+  //       },
+  //       {
+  //         id: "07",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif",
+  //         icondesc: "年终大促"
+  //       },
+  //       {
+  //         id: "08",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png",
+  //         icondesc: "武汉欢乐谷"
+  //       },
+  //       {
+  //         id: "09",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
+  //         icondesc: "极地海洋"
+  //       },
+  //       {
+  //         id: "10",
+  //         iconurl:
+  //           "http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png",
+  //         icondesc: "名胜古迹"
+  //       }
+  //     ]
+  //   };
+  // },
   computed: {
     pages() {
       const pages = [];
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {
           pages[page] = [];
@@ -133,7 +136,7 @@ export default {
         right: 0;
         bottom: 0;
         height: 0.44rem;
-        line-height: 0.75rem;
+        line-height: 1.2rem;
         text-align: center;
       }
     }
