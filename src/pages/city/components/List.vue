@@ -15,7 +15,7 @@
           <div class="button">{{item.name}}</div>
         </div>
       </div>
-      <div class="area"  v-for="(item, key) of cities" :key="key">
+      <div class="area"  v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>   <!-- 这里的Key代表的是对象  -->
         <div class="item-list" v-for="innerItem of item" :key="innerItem.id">
           <div class="item border-bottom">{{innerItem.name}}</div>
@@ -27,14 +27,24 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { readlink } from 'fs';
 export default {
   name: "CityList",
   props:{
       hotCities:Array,
-      cities:Object
+      cities:Object,
+      letter:String,
   },
   mounted(){
       this.scroll = new BScroll(this.$refs.wrapper);
+  },
+  watch: {
+      letter (){
+          if(this.letter){
+          const element=this.$refs[this.letter][0];
+          this.scroll.scrollToElement(element);
+          }
+      }
   }
 };
 </script>
