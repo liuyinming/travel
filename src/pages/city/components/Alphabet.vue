@@ -1,14 +1,67 @@
 <template>
   <ul class="list" >
-      <li class="item" v-for="(item, key) of cities" :key="key">{{key}}</li>
+      <li class="item" v-for="(item, key) of cities" :key="key" 
+      @click="handleLetter"
+      @touchstart="touchstartHandle"
+      @touchmove="touchmoveHandle"
+      @touchend="touchendHandle"
+      :ref="key"
+      >{{key}}</li>
   </ul>
 </template>
 
 <script>
+import { setTimeout } from 'timers';
+import { clearTimeout } from 'timers';
 export default {
   name: "CityAlphabet",
   props:{
       cities:Object,
+  },
+  data(){
+        return{
+            touchStatus:false,
+            startY:'',
+            timer:null,
+            
+        }
+  },
+  updated(){
+       this.startY=this.$refs['A'][0].offsetTop; 
+  },
+  computed:{
+       letters(){
+           const letters=[];
+           for(let i in this.cities){
+             letters.push(i);
+           }
+           return letters
+       }
+  },
+  methods:{
+      handleLetter(e){
+          this.$emit('change',e.target.innerText); 
+      },
+     touchstartHandle(){
+         this.touchStatus=true
+     },
+     touchmoveHandle(e){
+        if(this.touchStatus){
+           if(this.timer) {
+               clearTimeout(this.timer);
+           }
+           this.timer=setTimeout(()=>{
+             const touchY=e.touches[0].clientY-79;
+          const index=Math.floor((touchY-this.startY)/20);
+          if(index>=0&&index<this.letters.length){
+              this.$emit('change',this.letters[index]);
+          }  
+           },16)    
+        }
+     },
+     touchendHandle(){
+         this.touchStatus=false
+     }
   }
 };
 </script>
