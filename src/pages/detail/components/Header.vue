@@ -22,7 +22,6 @@ export default {
     },
     methods:{
       HandleScroll () {
-          console.log('scroll')
        const top=document.documentElement.scrollTop
        if(top>60){
            this.ShowAbs=false
@@ -60,6 +59,7 @@ export default {
   left:0;
   right:0;
   overflow: hidden;
+  z-index :2;
   height: 0.86rem;
   line-height: 0.86rem;
   text-align: center;
