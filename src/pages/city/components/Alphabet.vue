@@ -2,7 +2,7 @@
   <ul class="list" >
       <li class="item" v-for="(item, key) of cities" :key="key" 
       @click="handleLetter"
-      @touchstart="touchstartHandle"
+      @touchstart.prevent="touchstartHandle"
       @touchmove="touchmoveHandle"
       @touchend="touchendHandle"
       :ref="key"
