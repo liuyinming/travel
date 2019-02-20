@@ -3,10 +3,12 @@
     <swiper>
       <swiper-slide v-for="(page,index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
-          <div class="icon-image">
-            <img class="icon-imgcontent" :src="item.imgUrl">
-            <p class="icon-desc">{{item.desc}}</p>
-          </div>
+          <router-link to="/Good">
+            <div class="icon-image">
+              <img class="icon-imgcontent" :src="item.imgUrl">
+              <p class="icon-desc">{{item.desc}}</p>
+            </div>
+          </router-link>
         </div>
       </swiper-slide>
     </swiper>
@@ -18,6 +20,11 @@ export default {
   name: "HomeIcon",
   props:{
     list:Array
+  },
+  methods:{
+    HandleShow(){
+          alert("王者冲，真滴帅")
+    }
   },
   // data() {
   //   return {
